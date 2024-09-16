@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+.delete-container {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="submit"] {
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: #ff514b;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #4285f4;
+    text-decoration: none;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<div class="delete-container">
+    <h2>Are you sure you want to delete. <strong>{{ user.username }}</strong> User?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete">
+    </form>
+    <a href="{% url 'all_users' %}">Cancel</a>
+</div>
+
+</body>
+</html>
